@@ -27,18 +27,23 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+
       - name: Set up Node.js 
         uses: actions/setup-node@v3
         with:
           node-version: latest
+
       - name: Print a message for main branch
         if: github.ref == 'refs/heads/main'
         run: echo "This is the main branch."
+
       - name: Print a message for non-main branches
         if: github.ref != 'refs/heads/main'
         run: echo "This is not the main branch."
+
       - name: Run tests
         run: npm test
+
       - name: Debug message
         if: env.DEBUG == 'true'
         run: echo "Debugging is enabled."
@@ -48,18 +53,23 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+
       - name: Set up Node.js 
         uses: actions/setup-node@v3
         with:
           node-version: latest
+
       - name: Print a message for main branch
         if: github.ref == 'refs/heads/main'
         run: echo "This is the main branch."
+
       - name: Print a message for non-main branches
         if: github.ref != 'refs/heads/main'
         run: echo "This is not the main branch."
+
       - name: Run tests
         run: npm test
+        
       - name: Debug message
         if: env.DEBUG == 'true'
         run: echo "Debugging is enabled."
